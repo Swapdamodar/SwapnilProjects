@@ -1,10 +1,12 @@
 public class Car {
     private String carNumber;
     private String model;
+    private long entryTime;
 
-    public Car(String carNumber, String model) {
+    public Car(String carNumber, String model,long entryTime) {
         this.carNumber = carNumber;
         this.model = model;
+        this.entryTime = System.currentTimeMillis();
     }
 
     public String getCarNumber() {
@@ -19,7 +21,12 @@ public class Car {
         return model;
     }
 
+    public long getEntryTime() {
+        return entryTime;
+    }
+
     public void setModel(String model) {
+
         this.model = model;
     }
 }

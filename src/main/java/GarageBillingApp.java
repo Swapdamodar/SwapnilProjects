@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class GarageBillingApp {
     public static void main(String[] args) {
-        GarageService garageService = new GarageService();
+        GarageService garageService = new GarageService(5);
         Scanner sc = new Scanner(System.in);
 
         while(true){
@@ -22,12 +22,16 @@ public class GarageBillingApp {
                     String carNum = sc.next();
                     System.out.println("Enter Car Model");
                     String model = sc.next();
-                    garageService.addCustomer(name,phoneNo,carNum,model);
+                    System.out.println("Entering entry time of the car");
+                    long entryTime = System.currentTimeMillis();
+                    garageService.addCustomer(name,phoneNo,carNum,model,entryTime);
+
                     break;
                 case 2:
                     System.out.println("Enter Car Number");
                     String carNo = sc.next();
                     garageService.createInvoice(carNo);
+                    garageService.unParkCar(carNo);
                     break;
                 case 3:
                     System.out.println("Exiting...thank you!!");
